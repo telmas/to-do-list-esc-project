@@ -16,6 +16,6 @@ if(isset($_POST['newProjectName'])){
             'name' =>   $projectName]);
     }
 };
-header('Location: index2.php');
+header('Location: home.php');
 exit(0);
-?>
+

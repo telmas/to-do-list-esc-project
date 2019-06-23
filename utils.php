@@ -1,16 +1,10 @@
 <?php
 
-    function __construct()
-    {
-    }
-
-    function pluralize($count, $text)
-    {
+    function pluralize($count, $text){
         return $count . (($count == 1) ? (" $text") : (" ${text}s"));
     }
 
-    function ago($datetime)
-    {
+    function ago($datetime){
         $interval = date_create('now')->diff($datetime);
         $suffix = ($interval->invert ? ' past due date' : ' left');
         if ($v = $interval->y >= 1) return pluralize($interval->y, 'year') . $suffix;

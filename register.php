@@ -45,10 +45,18 @@ if(count($emails) > 0) {
     if(count($users) > 0) {
         $row = $users[0];
 
+
+
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['userName'] = $row['username'];
 
-        header("Location: index2.php");
+        if($_POST["remember-me"] == "remember"){
+            setcookie ("remember", $row['username']);
+        } else {
+            setcookie ("remember","");
+        }
+
+        header("Location: home.php");
         die();
     }
 }

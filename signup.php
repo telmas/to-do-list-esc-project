@@ -15,6 +15,8 @@ if(isset($_SESSION['Registration_Message'])) {
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Signup</title>
+
 </head>
 <body>
 
@@ -43,7 +45,7 @@ if(isset($_SESSION['Registration_Message'])) {
                             <input type="password" name="confirmPassword" id="confirmPassword" required class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                            <label for="remember-me" class="text-info"> <span><input id="remember-me" value="remember" name="remember-me" type="checkbox"></span><span>Remember me</span></label><br>
                             <input type="submit" name="submit" class="btn btn-info btn-md" value="Sign Up">
                             <span style="color: red"><?= $registrationMessage; ?></span>
 

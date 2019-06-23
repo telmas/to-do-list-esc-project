@@ -17,7 +17,13 @@ if(count($users) > 0) {
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['userName'] = $row['username'];
 
-    header("Location: index2.php");
+    if($_POST["remember-me"] == "remember"){
+        setcookie ("remember", $row['username']);
+    } else {
+        setcookie ("remember","");
+    }
+
+    header("Location: home.php");
     die();
 }  else {
     $_SESSION['Login_Failed'] = "Username or password are wrong. Please enter valid input";

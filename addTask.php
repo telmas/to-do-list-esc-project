@@ -14,8 +14,7 @@ $projectsQuery->execute(['projectName' =>  $_POST['selectedProject'], 'userid' =
 
 $projects = $projectsQuery->rowCount()? $projectsQuery->fetchAll() : [];
 
-
-if(isset($_POST['title'])){//need to add tests for other data
+if(isset($_POST['title'])){
     $title = trim($_POST['title']);
     $desc = trim($_POST['desc']);
     $completedate = $_POST['completedate'];
@@ -38,6 +37,6 @@ if(isset($_POST['title'])){//need to add tests for other data
                                 'completedate' =>  $completedate]);
     }
 };
-header('Location: index2.php');
+header('Location: home.php');
 exit(0);
 

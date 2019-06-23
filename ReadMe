@@ -1,1 +1,23 @@
 Course project: To-do list
+Description:
+    User can login or register if the user has no account.
+        -Login: The user is required to enter the username and password of his/her account.
+        -Register: The user can sign-up for an account in which he/she has to enter information for these required fields:
+            username, email password and confirm password.
+        -Remember me: On both pages the user is display a remember me option which automatically sets the user's username
+            into the username field of the login page each time he/she load the page.
+    The main home page presents the user with a view of his/her tasks.
+        On the left portion of the page the user is presented with these options: Profile, Logout and Filter pane.
+            -The profile button sends the user to a page with different information regarding the user and his/her activity on the web app.
+            -The Logout button logs the user out of his/her account.
+            -The Filter pane offers different filter the user can utilize in order to find the tasks he/she desires.
+    On the right portion of the page four expandable options are presented to the user.
+            -Tasks: The user is presented a list of their tasks. Each tasks displays the title and description of the created
+                task, as well as the deadline/time left for the user to complete the task. The user can click on the task in
+                order to display a pop-up that display all the information related to the task.
+                The user can also click the "Mark As Done" in order to complete the task or the "Delete" button in order to
+                delete the task.
+            -Add task: The user can fill a form for creating a task with these required fields: Title, Description, Due Date,
+                Project, Difficulty and Category.
+            -Projects: Display a list of created projects. The user can delete any project.
+            -Add project: The user can add a project that can be used for creating project-specific projects.

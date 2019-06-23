@@ -17,6 +17,10 @@ if(isset($_GET['as'], $_GET['task'])){
             $doneQuery->execute(['taskID' => $task, 'userID' => $_SESSION['user_id']]);
             break;
     }
-    header('Location: index2.php');
+    $arr = [
+        "title" => true
+    ];
+
+    $outputJSON = json_encode($arr);
+    echo $outputJSON;
 }
-exit(0);
