@@ -53,7 +53,7 @@ if(count($emails) > 0) {
         if($_POST["remember-me"] == "remember"){
             setcookie ("remember", $row['username']);
         } else {
-            setcookie ("remember","");
+            setcookie ("remember","");//done intentionally to remove cookie when remember me is not checked or when browser is closed
         }
 
         header("Location: home.php");

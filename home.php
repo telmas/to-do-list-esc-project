@@ -86,13 +86,16 @@ $projects4 = array();
         .button3 {
             width:100%;
         }
+        .formFilter {
+            /*intentional*/
+        }
     </style>
 </head>
 <body>
 <div id="home" class="container p-4">
     <div class="row">
         <div class="col-md-5 col-sm-5 col-xs-5 text-center text-white card" style="background-color: RGB(53,134,153)">
-            <form action="home.php" id="filterForm" onsubmit="return false" method="post">
+            <form action="home.php" class="formFilter" id="filterForm" onsubmit="return false" method="post">
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-4 text-left text-white" style="background-color: RGB(53,134,153)">
                         <br>
@@ -509,20 +512,52 @@ $projects4 = array();
                             deleteProjectFunction(projectID);
                         });
                     });
-                    $('#filterForm').load('home.php' + ' #filterForm');
+                    $('.formFilter').load('home.php' + ' .formFilter', function(responseText, textStatus, XMLHttpRequest){
+                        $('.formFilter').submit(function(event){
+                            $('#accordion').fadeOut(500, function () {
+                                $.ajax({
+                                    url: 'home.php',
+                                    type: 'post',
+                                    dataType:'html',
+                                    data: $('.formFilter').serialize(),
+                                    success: function(response, textStatus, jqXHR){
+                                        $('#accordion').html($(response).find("#accordion"));
+                                    },
+                                    error: function(jqXHR, textStatus, errorThrown){
+                                        console.log('error(s):'+textStatus, errorThrown);
+                                    }
+                                }).done(function () {
+                                    jQuery(".button1").click(function() {
+                                        let taskID = jQuery(this).attr("value");
+                                        markAsDoneFunction(taskID)
+                                    });
+
+                                    jQuery(".button2").click(function() {
+                                        let taskID = jQuery(this).attr("value");
+                                        deleteTaskFunction(taskID);
+                                    });
+
+                                    jQuery(".button3").click(function() {
+                                        let projectID = jQuery(this).attr("value");
+                                        deleteProjectFunction(projectID);
+                                    });
+                                });
+                            });
+                            $('#accordion').fadeIn(500);
+                        });
+                    });
                 }
             });
         });
-
     }
 
-    $('#filterForm').submit(function(event){
+    $('.formFilter').submit(function(event){
         $('#accordion').fadeOut(500, function () {
             $.ajax({
                 url: 'home.php',
                 type: 'post',
                 dataType:'html',
-                data: $('#filterForm').serialize(),
+                data: $('.formFilter').serialize(),
                 success: function(response, textStatus, jqXHR){
                     $('#accordion').html($(response).find("#accordion"));
                 },
